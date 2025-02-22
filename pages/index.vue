@@ -38,28 +38,35 @@
 
 <script setup>
 import SwipeDetector from '@/components/SwipeDetector.vue';
+import { useTransitionStore } from '@/stores/transition'
 import AnimatedLogo from "@/components/AnimatedLogo.vue";
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faArrowLeft, faArrowRight, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'vue-router'
+import { setActivePinia, createPinia } from 'pinia'
+
+setActivePinia(createPinia())
+
 const router = useRouter()
+const transitionStore = useTransitionStore()
 
 function handleSwipeLeft() {
-  // Navigate to the page for a left swipe
+  transitionStore.setTransition('left')
   router.push('/page-left')
 }
 
 function handleSwipeRight() {
-  // Navigate to the page for a right swipe
+  transitionStore.setTransition('right')
   router.push('/page-right')
 }
 
 function handleSwipeDown() {
-  // Navigate to the page for a down swipe
+  transitionStore.setTransition('down')
   router.push('/page-down')
 }
 
 function handleSwipeUp() {
-  // Optional: Navigate to a page for an up swipe
+  transitionStore.setTransition('up')
   router.push('/page-up')
 }
 </script>
