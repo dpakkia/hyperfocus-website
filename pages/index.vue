@@ -1,88 +1,104 @@
 <template>
-  <div class="relative w-screen h-screen flex justify-center items-center bg-[#333] overflow-hidden">
-    <!-- SFONDO -->
+  <div class="relative w-screen min-h-[300vh] bg-[#333] overflow-hidden">
+    <!-- SFONDO FISSO -->
     <img
       src="/background-smoke.png"
       alt="Background Smoke"
-      class="absolute inset-0 w-full h-full object-cover z-0"
+      class="fixed inset-0 w-full h-full object-cover z-0 pointer-events-none"
     />
 
-    <!-- CONTENUTO CENTRALE -->
-    <div class="relative z-30 flex flex-col items-center text-white text-center font-[Jost] animate-fadeInUp">
-      <h1 class="text-8xl font-bold tracking-widest">HYPERFOCUS</h1>
-      <p class="text-3xl font-light mt-2">SOLUZIONI CREATIVE</p>
+    <!-- SEZIONE 1: Contenuto iniziale -->
+    <div
+      class="fixed inset-0 flex justify-center items-center z-30 transition-transform duration-500 ease-out"
+      :class="scrollPercent > 25 ? '-translate-y-[100vh]' : 'translate-y-0'"
+    >
+      <div class="flex flex-col items-center text-white text-center font-[Jost]">
+        <h1 class="text-8xl font-bold tracking-widest">HYPERFOCUS</h1>
+        <p class="text-3xl font-light mt-2">SOLUZIONI CREATIVE</p>
 
-      <!-- CONTATTI -->
-      <div class="flex gap-6 mt-6">
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener"
-          class="transition-transform duration-300 transform hover:scale-110 group"
-        >
-          <img
-            src="/instagram.svg"
-            alt="Instagram"
-            class="w-10 h-10 transition-colors duration-300 group-hover:brightness-150"
-          />
-        </a>
+        <!-- CONTATTI -->
+        <div class="flex gap-6 mt-6">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="transition-transform duration-300 transform hover:scale-110 group">
+            <img src="/instagram.svg" alt="Instagram" class="w-10 h-10 transition-colors duration-300 group-hover:brightness-150" />
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="transition-transform duration-300 transform hover:scale-110 group">
+            <img src="/linkedin.svg" alt="LinkedIn" class="w-10 h-10 transition-colors duration-300 group-hover:brightness-150" />
+          </a>
+          <a href="mailto:info@hyperfocus.it" class="transition-transform duration-300 transform hover:scale-110 group">
+            <img src="/mail.svg" alt="Email" class="w-10 h-10 transition-colors duration-300 group-hover:brightness-150" />
+          </a>
+          <a href="https://wa.me/3703016677" target="_blank" rel="noopener" class="transition-transform duration-300 transform hover:scale-110 group">
+            <img src="/whatsapp.svg" alt="WhatsApp" class="w-10 h-10 transition-colors duration-300 group-hover:brightness-150" />
+          </a>
+        </div>
 
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener"
-          class="transition-transform duration-300 transform hover:scale-110 group"
-        >
-          <img
-            src="/linkedin.svg"
-            alt="LinkedIn"
-            class="w-10 h-10 transition-colors duration-300 group-hover:brightness-150"
-          />
-        </a>
-
-        <a
-          href="mailto:info@hyperfocus.it"
-          class="transition-transform duration-300 transform hover:scale-110 group"
-        >
-          <img
-            src="/mail.svg"
-            alt="Email"
-            class="w-10 h-10 transition-colors duration-300 group-hover:brightness-150"
-          />
-        </a>
-
-        <a
-          href="https://wa.me/3703016677" 
-          target="_blank"
-          rel="noopener"
-          class="transition-transform duration-300 transform hover:scale-110 group"
-        >
-          <img
-            src="/whatsapp.svg"
-            alt="WhatsApp"
-            class="w-10 h-10 transition-colors duration-300 group-hover:brightness-150"
-          />
-        </a>
+        <!-- FRECCINA -->
+        <img
+          src="/polygon-icon.svg"
+          alt="Scroll Down Icon"
+          class="w-[32px] h-auto mt-10 animate-bounce"
+        />
       </div>
     </div>
 
-    <!-- FRECCINA SALTELLANTE -->
-    <img
-      src="/polygon-icon.svg"
-      alt="Scroll Down Icon"
-      class="absolute w-[32px] h-auto z-30 animate-bounce"
-      :style="{ bottom: '10vh', left: '50%', transform: 'translateX(-50%)' }"
-    />
-  </div>
+    <!-- SEZIONE 2: Rettangolo arancione -->
+<div
+  v-if="scrollPercent > 25"
+  class="fixed z-40 animate-snappyFadeIn"
+  :style="{
+    top: '6%',
+    left: 'calc(0vw + 3%)',
+    width: 'calc(25vw - 6%)',
+    height: 'calc(100vh - 12%)',
+    background: 'linear-gradient(to bottom, #AC6040, transparent)'
+  }"
+/>
 
-  <!-- DEBUG COUNTER -->
-  <div class="fixed top-5 left-5 bg-black/70 text-white text-sm p-2 rounded z-50 font-mono">
-    Scroll: {{ scrollPercent.toFixed(1) }}%<br />
-    {{ scrollPercent > 25 ? '✅ Superato 25%' : '⬆️ Sotto 25%' }}
-  </div>
+<!-- SEZIONE 2: Rettangolo blu -->
+<div
+  v-if="scrollPercent > 25"
+  class="fixed z-40 animate-snappyFadeIn"
+  :style="{
+    top: '6%',
+    left: 'calc(25vw + 3%)',
+    width: 'calc(25vw - 6%)',
+    height: 'calc(100vh - 12%)',
+    background: 'linear-gradient(to bottom, #657186, transparent)'
+  }"
+/>
 
-  <!-- DEBUG: Forza altezza -->
-  <div class="w-full h-[100vh]"></div>
+<!-- SEZIONE 2: Rettangolo grigio -->
+<div
+  v-if="scrollPercent > 25"
+  class="fixed z-40 animate-snappyFadeIn"
+  :style="{
+    top: '6%',
+    left: 'calc(50vw + 3%)',
+    width: 'calc(25vw - 6%)',
+    height: 'calc(100vh - 12%)',
+    background: 'linear-gradient(to bottom, #686C79, transparent)'
+  }"
+/>
+
+<!-- SEZIONE 2: Rettangolo rosso -->
+<div
+  v-if="scrollPercent > 25"
+  class="fixed z-40 animate-snappyFadeIn"
+  :style="{
+    top: '6%',
+    left: 'calc(75vw + 3%)',
+    width: 'calc(25vw - 6%)',
+    height: 'calc(100vh - 12%)',
+    background: 'linear-gradient(to bottom, #C33931, transparent)'
+  }"
+/>
+
+    <!-- DEBUG SCROLL -->
+    <div class="fixed top-5 left-5 bg-black/70 text-white text-sm p-2 rounded z-50 font-mono">
+      Scroll: {{ scrollPercent.toFixed(1) }}%<br />
+      {{ scrollPercent > 25 ? '✅ Superato 25%' : '⬆️ Sotto 25%' }}
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -108,18 +124,28 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-@keyframes fadeInUp {
+@keyframes snappyFadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
   }
 }
 
-.animate-fadeInUp {
-  animation: fadeInUp 0.8s ease-out both;
+.animate-snappyFadeIn {
+  animation: snappyFadeIn 0.3s ease-out forwards;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+/* Prevenzione del bianco visibile dietro */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  overflow-x: hidden;
 }
 </style>
