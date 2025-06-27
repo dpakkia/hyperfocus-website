@@ -1,1 +1,1 @@
-export { default } from "file:///Users/dpakkia/Lavoro/hyperfocus-website/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
+export { default } from "file:///Users/dpakkia/Documents/Sviluppo/hyperfocus-website/hyperfocus-website/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
