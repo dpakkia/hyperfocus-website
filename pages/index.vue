@@ -41,10 +41,10 @@
       </div>
     </div>
 
-    <!-- SEZIONE 2: Rettangolo arancione -->
+<!-- SEZIONE 2: Rettangolo arancione CON CONTENUTO -->
 <div
   v-if="scrollPercent > 25"
-  class="fixed z-40 animate-snappyFadeIn"
+  class="fixed z-40 animate-snappyFadeIn text-white font-[Jost] font-medium"
   :style="{
     top: '6%',
     left: 'calc(0vw + 3%)',
@@ -52,7 +52,21 @@
     height: 'calc(100vh - 12%)',
     background: 'linear-gradient(to bottom, #AC6040, transparent)'
   }"
-/>
+>
+  <div class="relative w-full h-full">
+    <!-- Testo ruotato -->
+    <div class="absolute left-2 top-1/2 -translate-y-1/2 rotate-[-90deg] origin-left text-sm tracking-wide">
+      STRATEGIA E CONTENUTI PER SOCIAL NETWORK
+    </div>
+
+    <!-- Immagine -->
+    <img
+      src="/4C05C701-632D-4AFA-93AC-711085894571.png"
+      alt="Visual"
+      class="absolute right-2 top-1/2 -translate-y-1/2 max-w-[80%] h-auto"
+    />
+  </div>
+</div>
 
 <!-- SEZIONE 2: Rettangolo blu -->
 <div
