@@ -76,7 +76,7 @@
          }">
          <!-- XLEDDYL: semplificato il posizionamento -->
          <div
-            class="absolute top-2 left-11 origin-top-left rotate-90 md:text-3xl lg:text-4xl tracking-wide whitespace-nowrap text-right">
+            class="absolute -bottom-12 left-0 origin-top-left -rotate-90 md:text-3xl lg:text-4xl tracking-wide whitespace-nowrap text-right">
             STRATEGIA E CONTENUTI PER SOCIAL NETWORK
          </div>
          <!-- XLEDDYL: qui non server una max-w perchè c'è già la dimensione del rettangolo che è fissa, basta mettere size-full così l'immagine si adatta -->
